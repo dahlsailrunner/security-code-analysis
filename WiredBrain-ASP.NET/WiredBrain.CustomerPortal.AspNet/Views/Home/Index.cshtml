@@ -1,0 +1,10 @@
+﻿@Html.ValidationSummary()
+
+@using (Html.BeginForm("Index"))
+{
+    <div class="form-group">
+        <label for="pointNo">Please enter loyalty number</label>
+        <input type="text" class="form-control" id="pointNo" name="loyaltyNumber" value="5932">
+        <button type="submit" class="mt-md-1 btn btn-primary">Submit</button>
+    </div>
+}

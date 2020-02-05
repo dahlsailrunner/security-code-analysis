@@ -1,0 +1,14 @@
+﻿@model WiredBrain.CustomerPortal.Web.Models.EditFavoriteModel
+
+<div class="row mt-md-5">
+    <h3>Edit your favorite drink so you can just order "the usual" at the counter.</h3>
+</div>
+<div class="row">
+    <form asp-action="EditFavorite" style="width:100%">
+        @Html.HiddenFor(m => m.LoyaltyNumber)
+        <div class="form-group">
+            <input type="text" class="form-control" asp-for="Favorite" id="fav" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

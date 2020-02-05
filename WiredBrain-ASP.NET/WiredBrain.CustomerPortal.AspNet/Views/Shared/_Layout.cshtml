@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Wired Brain Coffee Co</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img asp-append-version="true" alt="Logo" src="~/wired-brain-coffee-logo.png" style="max-width:100%" />
+            </div>
+            <div class="col-md-10 mt-md-5">
+                <span class="title">@ViewBag.Title</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

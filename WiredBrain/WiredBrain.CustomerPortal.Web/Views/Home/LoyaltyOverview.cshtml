@@ -1,0 +1,27 @@
+﻿@model WiredBrain.CustomerPortal.Web.Models.LoyaltyModel
+
+<h2 style="color:green;text-align:center;">
+    Hi @Model.CustomerName! You're on your way to a free coffee!
+</h2>
+<h5 style="color:green;text-align:center;" class="mb-md-3">
+    Just @Model.PointsToGo more points until your next!
+    @if (Model.FreeCoffees > 0)
+    {
+        <text>(you already have @Model.FreeCoffees)</text>
+    }
+</h5>
+
+<div class="container">
+    <div class="progress">
+        <div class="progress-bar" style="width:@Model.PercentageAchieved%"></div>
+    </div>
+</div>
+<div class="row mt-md-5">
+    <h3>Your favorite drink:</h3>
+</div>
+<div class="row">
+    <h6>@Model.FavoriteDrink</h6>
+</div>
+<div class="row">
+    <a asp-action="EditFavorite" asp-route-loyaltyNumber="@Model.LoyaltyNumber" class="btn btn-primary">Edit</a>
+</div>
