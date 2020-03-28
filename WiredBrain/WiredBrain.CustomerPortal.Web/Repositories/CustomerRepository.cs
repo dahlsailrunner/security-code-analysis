@@ -16,9 +16,10 @@ namespace WiredBrain.CustomerPortal.Web.Repositories
             this.dbContext = dbContext;
         }
 
-        public async Task<Customer> GetCustomerByLoyaltyNumber(int loyaltyNumber)
+        public async Task<Customer> GetCustomerByLoyaltyNumber(string loyaltyNumber)
         {
-            var customers = dbContext.Customers.FromSqlRaw("SELECT * FROM Customers where LoyaltyNumber = " + loyaltyNumber);
+            var customers = dbContext.Customers
+                .FromSqlRaw("SELECT * FROM Customers where LoyaltyNumber = " + loyaltyNumber);
             return await customers.FirstOrDefaultAsync();
         }
 

@@ -14,7 +14,7 @@ namespace WiredBrain.Api.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<Customer> GetCustomerByLoyaltyNumber(int loyaltyNumber)
+        public async Task<Customer> GetCustomerByLoyaltyNumber(string loyaltyNumber)
         {
             var customers = _dbContext.Customers.FromSqlRaw("SELECT * FROM Customers where LoyaltyNumber = " + loyaltyNumber);
             var customer = await customers.FirstOrDefaultAsync();

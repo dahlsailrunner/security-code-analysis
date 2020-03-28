@@ -42,15 +42,16 @@ namespace WiredBrain.CustomerPortal.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Welcome(string loyaltyNumber)
         {
-            if (!int.TryParse(loyaltyNumber, out var loyaltyNum))
-            {
-                SecurityLog.Warning("Invalid input from user!  {UserInput}", loyaltyNumber);
-                //Log.Warning("Invalid input from user!  {UserInput}", loyaltyNumber);
-                throw new Exception("Invalid input detected!!!");
-            }
-            var customer = await repo.GetCustomerByLoyaltyNumber(loyaltyNum);
+            //if (!int.TryParse(loyaltyNumber, out var loyaltyNum))
+            //{
+            //    SecurityLog.Warning("Invalid input from user!  {UserInput}", loyaltyNumber);
+            //    //Log.Warning("Invalid input from user!  {UserInput}", loyaltyNumber);
+            //    throw new Exception("Invalid input detected!!!");
+            //}
+            var customer = await repo.GetCustomerByLoyaltyNumber(loyaltyNumber);
             if (customer == null)
             {
                 ModelState.AddModelError(string.Empty, "Unknown loyalty number");
@@ -69,7 +70,7 @@ namespace WiredBrain.CustomerPortal.Web.Controllers
                 //Log.Warning("Unauthorized access attempted on {LoyaltyNum}", loyaltyNumber);
                 throw new Exception($"Unauthorized to see loyalty number {loyaltyNumber}!!");
             }
-            var customer = await repo.GetCustomerByLoyaltyNumber(loyaltyNumber);
+            var customer = await repo.GetCustomerByLoyaltyNumber(loyaltyNumber.ToString());
             
             var pointsNeeded = int.Parse(config["CustomerPortalSettings:PointsNeeded"]);
 
@@ -77,7 +78,7 @@ namespace WiredBrain.CustomerPortal.Web.Controllers
             return View(loyaltyModel);
         }
 
-        public async Task<IActionResult> EditFavorite(int loyaltyNumber)
+        public async Task<IActionResult> EditFavorite(string loyaltyNumber)
         {
             ViewBag.Title = "Edit favorite";
 

@@ -6,7 +6,7 @@ namespace WiredBrain.Api.Repositories
 {
     public interface ICustomerRepository
     {
-        Task<Customer> GetCustomerByLoyaltyNumber(int loyaltyNumber);
+        Task<Customer> GetCustomerByLoyaltyNumber(string loyaltyNumber);
         Task SetFavorite(UpdateFavoriteModel model);
     }
 }

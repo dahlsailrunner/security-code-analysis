@@ -19,7 +19,8 @@ namespace WiredBrain.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<Customer> Get(int loyaltyNumber)
+        //public async Task<Customer> Get(int loyaltyNumber)
+        public async Task<Customer> Get(string loyaltyNumber)
         {
             return await _repo.GetCustomerByLoyaltyNumber(loyaltyNumber);
         }

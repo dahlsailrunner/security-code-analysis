@@ -1,5 +1,6 @@
 ﻿<div asp-validation-summary="All"></div>
 
+@Html.AntiForgeryToken()
 <form asp-action="Welcome">
     <div class="form-group">
         <label for="pointNo">Please enter loyalty number</label>
