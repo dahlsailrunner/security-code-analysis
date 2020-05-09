@@ -3,8 +3,12 @@ name: Build and Produce WiredBrain-Core Solution
 on:
   push:
     branches: [ master ]
+    paths: 
+      - WiredBrain/**
   pull_request:
     branches: [ master ]
+    paths: 
+      - WiredBrain/**
 
 jobs:
   build:
