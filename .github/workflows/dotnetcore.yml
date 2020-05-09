@@ -33,3 +33,21 @@ jobs:
       
     - name: Publish Identity
       run: dotnet publish WiredBrain.Identity/*.csproj --configuration Release           
+
+    - name: Upload API
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: WiredBrain-API
+        path: WiredBrain.Api/bin/Release/netcoreapp3.0/publish
+        
+    - name: Upload Portal
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: WiredBrain-Web
+        path: WiredBrain.CustomerPortal.Web/bin/Release/netcoreapp3.0/publish
+        
+    - name: Upload API
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: WiredBrain-Identity
+        path: WiredBrain.Identity/bin/Release/netcoreapp3.0/publish
