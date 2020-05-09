@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build and Produce WiredBrain-Core Solution
 
 on:
   push:
@@ -46,7 +46,7 @@ jobs:
         name: WiredBrain-Web
         path: ./WiredBrain/WiredBrain.CustomerPortal.Web/bin/Release/netcoreapp3.0/publish
         
-    - name: Upload API
+    - name: Upload Identity
       uses: actions/upload-artifact@v1.0.0
       with:
         name: WiredBrain-Identity
